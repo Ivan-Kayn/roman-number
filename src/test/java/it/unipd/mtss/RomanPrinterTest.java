@@ -20,4 +20,46 @@ public class RomanPrinterTest {
             assertEquals(expected, RomanPrinter.print(0));
         }
     }
+
+    @Test
+    public void testConvertOne() {
+        // Arrange
+        try (MockedStatic<IntegerToRoman> utilities = Mockito.mockStatic(IntegerToRoman.class)) {
+
+            utilities.when(() -> IntegerToRoman.convert(1)).thenReturn("I");
+
+            // Act
+            String expected = "  _____ \n" +
+                    " |_   _|\n" +
+                    "   | |  \n" +
+                    "   | |  \n" +
+                    "  _| |_ \n" +
+                    " |_____|\n";
+
+            String valoreAtteso = RomanPrinter.print(1);
+
+            // Assert
+            assertEquals(expected, valoreAtteso);
+        }
+    }
+
+    @Test
+    public void testConvertFive() {
+        // Arrange
+        try (MockedStatic<IntegerToRoman> utilities = Mockito.mockStatic(IntegerToRoman.class)) {
+
+            utilities.when(() -> IntegerToRoman.convert(5)).thenReturn("V");
+
+            // Act
+            String expected = " __      __\n" +
+                    " \\ \\    / /\n" +
+                    "  \\ \\  / / \n" +
+                    "   \\ \\/ /  \n" +
+                    "    \\  /   \n" +
+                    "     \\/    \n";
+
+            // Assert
+            assertEquals(expected, RomanPrinter.print(5));
+        }
+    }
 }

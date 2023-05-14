@@ -16,4 +16,17 @@ public class IntegerToRomanTest {
         // Assert
         assertEquals(numeroRomanoAtteso, numeroRomanoAttuale);
     }
+
+    @Test
+    public void testConvertOne() {
+        // Arrange
+        int numeroArabo = 1;
+        String numeroRomanoAtteso = "I";
+
+        // Act
+        String numeroRomanoAttuale = IntegerToRoman.convert(numeroArabo);
+
+        // Assert
+        assertEquals(numeroRomanoAtteso, numeroRomanoAttuale);
+    }
 }
